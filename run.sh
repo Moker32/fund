@@ -14,12 +14,9 @@ else
     exit 1
 fi
 
-# 运行程序
+# 运行程序（使用 uv）
 echo "正在启动基金监控工具..."
 echo "=========================================="
 
-# 支持传递命令行参数，包括 --report-dir
-# 用法示例：
-#   ./run.sh                              # 使用默认报告目录 reports
-#   ./run.sh --report-dir /tmp/reports    # 使用自定义报告目录
-python3 fund.py "$@"
+# uv run 会自动创建虚拟环境并安装依赖
+uv run python fund.py "$@"
